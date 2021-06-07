@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sauces.agenda.Modelo;
-
-import java.io.Serializable;
-import java.util.Objects;
+package com.sauces.agenda.modelo;
 
 /**
  *
  * @author daw1
  */
-public class Contacto implements Serializable{
+public class Contacto {
     private String nombre;
     private String telefono;
     private String email;
+
+    public Contacto() {
+    }
+
+    public Contacto(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Contacto(String nombre, String telefono, String email) {
         this.nombre = nombre;
@@ -48,41 +52,24 @@ public class Contacto implements Serializable{
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.nombre);
-        hash = 29 * hash + Objects.hashCode(this.telefono);
-        hash = 29 * hash + Objects.hashCode(this.email);
-        return hash;
-    }
-
-    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Contacto other = (Contacto) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.telefono, other.telefono)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        return true;
+        return super.equals(obj);
+    }
+    @Override
+    public int hashCode() {
+        return super.hashCode(); 
     }
 
     @Override
     public String toString() {
-        return nombre + "," + telefono + "," + email;
+        return nombre+ "," + telefono + "," + email ;
     }
+    
+    
+    
+    
+    
+    
+    
     
 }
