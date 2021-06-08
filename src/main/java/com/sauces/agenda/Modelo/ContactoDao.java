@@ -11,24 +11,14 @@ import java.util.List;
  *
  * @author daw1
  */
-public class ContactoDao {
-    List<Contacto> listar;
+public interface ContactoDao {
     
-    public int insertar(Contacto contacto){
-        return 0;
-    }
     
-    public int buscar(String nombre){
-        return 0;
-    }
-    
-    public int modificar(){
-        return 0;
-    }
-    
-    public int borrar(String nombre){
-        return 0;
-    }
+    public int insertar(Contacto contacto)throws DaoException;
+    public Contacto buscar(String nombre)throws DaoException;
+    public int modificar(Contacto contacto)throws DaoException;
+    public List<Contacto> listar()throws DaoException; 
+    public int borrar(String nombre)throws DaoException;
     
         
 }

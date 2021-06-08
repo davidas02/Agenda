@@ -6,12 +6,14 @@
 package com.sauces.agenda.modelo;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author daw1
  */
-class ConexionBD {
+public class ConexionBD {
     private String url; 
     private String usuario;
     private String password;
@@ -22,8 +24,9 @@ class ConexionBD {
         this.password = password;
     }
     
-    public Connection getConnection(){
-        return null;
+    public Connection getConnection() throws SQLException{
+        Connection miConexion=DriverManager.getConnection(url,usuario,password);
+        return miConexion;
     }
     
 }
