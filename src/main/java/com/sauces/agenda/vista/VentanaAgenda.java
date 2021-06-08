@@ -38,7 +38,7 @@ private ContactoTableModel contactoTM;
         tTelefono = new javax.swing.JTextField();
         lEmail = new javax.swing.JLabel();
         tEmail = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        tBuscar = new javax.swing.JTextField();
         bBuscar = new javax.swing.JButton();
         bEditar = new javax.swing.JButton();
         bAnadir = new javax.swing.JButton();
@@ -100,7 +100,11 @@ private ContactoTableModel contactoTM;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setText("jTextField1");
+        tBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tBuscarActionPerformed(evt);
+            }
+        });
 
         bBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sauces/agenda/iconos/busqueda.png"))); // NOI18N
         bBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +191,7 @@ private ContactoTableModel contactoTM;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -208,7 +212,7 @@ private ContactoTableModel contactoTM;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1)
+                            .addComponent(tBuscar)
                             .addComponent(bBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bEditar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                             .addComponent(bAnadir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
@@ -241,6 +245,10 @@ private ContactoTableModel contactoTM;
     private void bBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bBorrarActionPerformed
+
+    private void tBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,7 +294,6 @@ private ContactoTableModel contactoTM;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lEmail;
     private javax.swing.JLabel lNombre;
     private javax.swing.JLabel lTelefono;
@@ -298,6 +305,7 @@ private ContactoTableModel contactoTM;
     private javax.swing.JMenuItem miImportar;
     private javax.swing.JMenuItem miSalir;
     private javax.swing.JPanel panelContacto;
+    private javax.swing.JTextField tBuscar;
     private javax.swing.JTextField tEmail;
     private javax.swing.JTextField tNombre;
     private javax.swing.JTextField tTelefono;
