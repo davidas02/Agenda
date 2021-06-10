@@ -16,27 +16,6 @@ public final int CANCELAR=0;
 public int mostrarCrear(){
 
 }
-public int mostrarEditar(){
-
-}
-public String getNombre(){
-   return this.tNombre.getText();
-}
-public String getTelefono(){
-    return this.tTelefono.getText();
-}
-public String getEmail(){
-    return this.tEmail.getText();
-}
-public void mostrarNombre(String nombre){
-    this.tNombre.setText(nombre);
-}
-public void mostrarTelefono(String telefono){
-   this.tTelefono.setText(telefono);
-}
-public void mostrarEmail(String email){
-    this.tEmail.setText(email);
-}
     /**
      * Creates new form DialogoContacto
      */
@@ -54,98 +33,17 @@ public void mostrarEmail(String email){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelContacto = new javax.swing.JPanel();
-        lNombre = new javax.swing.JLabel();
-        tNombre = new javax.swing.JTextField();
-        lTelefono = new javax.swing.JLabel();
-        tTelefono = new javax.swing.JTextField();
-        lEmail = new javax.swing.JLabel();
-        tEmail = new javax.swing.JTextField();
-        bGuardar = new javax.swing.JButton();
-        bCancelar = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        panelContacto.setBorder(javax.swing.BorderFactory.createTitledBorder("CONTACTO"));
-
-        lNombre.setText("NOMBRE");
-
-        lTelefono.setText("TELÉFONO");
-
-        lEmail.setText("EMAIL");
-
-        javax.swing.GroupLayout panelContactoLayout = new javax.swing.GroupLayout(panelContacto);
-        panelContacto.setLayout(panelContactoLayout);
-        panelContactoLayout.setHorizontalGroup(
-            panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContactoLayout.createSequentialGroup()
-                .addGroup(panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lTelefono)
-                    .addComponent(lNombre)
-                    .addGroup(panelContactoLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(lEmail)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelContactoLayout.createSequentialGroup()
-                        .addComponent(tEmail)
-                        .addContainerGap())
-                    .addGroup(panelContactoLayout.createSequentialGroup()
-                        .addComponent(tTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 227, Short.MAX_VALUE))
-                    .addComponent(tNombre)))
-        );
-        panelContactoLayout.setVerticalGroup(
-            panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContactoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lNombre)
-                    .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lTelefono))
-                .addGap(18, 18, 18)
-                .addGroup(panelContactoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lEmail)
-                    .addComponent(tEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
-
-        bGuardar.setText("GUARDAR");
-
-        bCancelar.setText("CANCELAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(bGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(bCancelar)
-                .addGap(40, 40, 40))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(218, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bGuardar)
-                    .addComponent(bCancelar))
-                .addGap(59, 59, 59))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -194,14 +92,5 @@ public void mostrarEmail(String email){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bCancelar;
-    private javax.swing.JButton bGuardar;
-    private javax.swing.JLabel lEmail;
-    private javax.swing.JLabel lNombre;
-    private javax.swing.JLabel lTelefono;
-    private javax.swing.JPanel panelContacto;
-    private javax.swing.JTextField tEmail;
-    private javax.swing.JTextField tNombre;
-    private javax.swing.JTextField tTelefono;
     // End of variables declaration//GEN-END:variables
 }
