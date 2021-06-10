@@ -9,53 +9,97 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author daw1
  */
-public class ContactoDaoJdbc implements ContactoDao{
+public class ContactoDaoJdbc implements ContactoDao {
+
     private ConexionBD conexion;
 
     public ContactoDaoJdbc(ConexionBD conexion) {
         this.conexion = conexion;
     }
-    
+
     @Override
     public int modificar(Contacto contacto) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int n = 0;
+        try (Connection con = conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement("UPDATE agenda SET telefono=? WHERE nombre =  ? ");) {
+            ps.setString(2, contacto.getNombre());
+            ps.setString(1, contacto.getTelefono());
+            n = ps.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+        return n;
     }
 
     @Override
     public List<Contacto> listar() throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Contacto> listado = null;
+        try (Connection con = conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM agenda");
+                ResultSet rs = ps.executeQuery();) {
+            listado = new ArrayList<>();
+            while (rs.next()) {
+                listado.add(new Contacto(rs.getString("nombre"), rs.getString("telefono"), rs.getString("email")));
+            }
+        } catch (SQLException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+        return listado;
     }
 
     @Override
     public int insertar(Contacto contacto) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int n = 0;
+        try (Connection con = conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement("INSERT INTO agenda VALUES (?,?,?) ");) {
+            ps.setString(1, contacto.getNombre());
+            ps.setString(2, contacto.getTelefono());
+            ps.setString(3, contacto.getEmail());
+            n = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+        return n;
     }
 
     @Override
     public Contacto buscar(String nombre) throws DaoException {
-     Contacto c=null;
-     try(Connection con=conexion.getConnection();
-             PreparedStatement ps=con.prepareStatement("SELECT * FROM contacto WHERE nombre=?");){
-     ps.setString(1,nombre);
-     ResultSet rs=ps.executeQuery();
-     while(rs.next()){
-     c=new Contacto(rs.getString("nombre"),rs.getString("telefono"),rs.getString("email"));
-     }
-     }catch(SQLException ex){
-         throw new DaoException(ex.getMessage());
-     }
-     return c;
+        Contacto c = null;
+        try (Connection con = conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM contacto WHERE nombre=?");) {
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                c = new Contacto(rs.getString("nombre"), rs.getString("telefono"), rs.getString("email"));
+            }
+        } catch (SQLException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+        return c;
     }
 
     @Override
     public int borrar(String nombre) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int n = 0;
+        try (Connection con = conexion.getConnection();
+                PreparedStatement ps = con.prepareStatement("DELETE FROM cuenta WHERE codigo =  ?");) {
+            ps.setString(1, nombre);
+            n = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw new DaoException(ex.getMessage());
+        }
+        return n;
     }
-   
+
 }

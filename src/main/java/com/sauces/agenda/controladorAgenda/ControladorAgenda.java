@@ -30,14 +30,30 @@ public class ControladorAgenda {
     nombre=ventana.getNombre();
     telefono=ventana.getTelefono();
     email=ventana.getEmail();
+    Contacto c=new Contacto(nombre, telefono, email);
+    try{
+        contactoDao.insertar(c);
+        if(c!=null){
+        ventana.mostrarMensaje("Contacto añadido");
+        }else{
+            ventana.mostrarMensaje("No se puede añadir contacto");
+        }
+    }catch(DaoException ex){
+        new DaoException(ex.toString());}
     }
     public void editar(){
     
     }
     public void borrar(){
     String nombre=ventana.getNombre();
-    Contacto contacto=contactoDao.buscar(nombre);
-   
+        try {
+            Contacto contacto=contactoDao.buscar(nombre);
+            if(contacto!=null){
+                contactoDao.borrar(nombre);
+            }
+        } catch (DaoException ex) {
+            new DaoException(ex.toString());
+        }
     }
     public void buscar(){
         String nombre=ventana.getNombre();
@@ -46,11 +62,11 @@ public class ControladorAgenda {
             if(contacto!=null){
                 ventana.mostrarTelefono(contacto.getTelefono());
                 ventana.mostrarEmail(contacto.getEmail());
+                ventana.mostrarNombre(nombre);
             }
         } catch (DaoException ex) {
-            Logger.getLogger(ControladorAgenda.class.getName()).log(Level.SEVERE, null, ex);
+        new DaoException(ex.toString());
         }
-        
     }
     public void listar(){}
     public void exportar(){}
